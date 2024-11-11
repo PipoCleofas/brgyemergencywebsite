@@ -72,21 +72,26 @@
   .dashboard h2 {
     font-size: 24px;
     margin-bottom: 20px;
-  }
+    margin-left: 20px; /* Adjust this value to control how far to the right it moves */
+}
+
   
   .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* One column layout */
     gap: 20px;
-  }
+}
+
   
   .dashboard-item {
     background-color: #e0e0e0;
-    padding: 20px;
+    padding: 40px; /* Increase padding to make items larger */
     font-size: 18px;
     text-align: center;
     border-radius: 10px;
-  }
+    height: 160px; /* Adjust height to make the rectangles taller */
+}
+
   
   .chart-section {
     margin-top: 40px;

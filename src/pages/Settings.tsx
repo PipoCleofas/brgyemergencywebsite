@@ -1,11 +1,11 @@
+import '../../utils/Settings.css';
 import SettingsLeft from '../components/Settingsleft';
 import SettingsRight from '../components/SettingsRight';
-import '../../utils/Home.css';
 import { LanguageProvider, useLanguageContext } from '../context/LanguageProvider'; 
 
 export default function Settings() {
-  const { language } = useLanguageContext(); // Access language from context
-  
+  const { language } = useLanguageContext();
+
   return (
     <LanguageProvider> 
       <div className="settings-container"> 
