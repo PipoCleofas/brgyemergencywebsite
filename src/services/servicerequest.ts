@@ -3,7 +3,7 @@ import { handleAxiosError } from "../../utils/handleAxiosError";
 
 export const updateStatusRequest = async (status: string, userId: number) => {
     try {
-        const response = await axios.put(`http://192.168.100.127:3000/servicerequest/updateRequest/${status}`, {
+        const response = await axios.put(`http://db-production-c620.up.railway.app/servicerequest/updateRequest/${status}`, {
             UserID: userId
         }, {
             headers: {

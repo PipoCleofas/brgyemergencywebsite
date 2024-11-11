@@ -23,7 +23,7 @@ export default function ApprovalRight() {
     }, [checkAccounts, clients]);
 
     const updateUserStatus = async (status: string, userId: number) => {
-        const url = `http://192.168.100.127:3000/user/updateStatusUser/${status}`;
+        const url = `http://db-production-c620.up.railway.app/user/updateStatusUser/${status}`;
         console.log('Attempting to update user status at:', url);  
     
         try {

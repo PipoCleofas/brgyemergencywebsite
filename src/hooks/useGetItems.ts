@@ -16,7 +16,7 @@ export function useGetItems() {
     try {
       switch (target) {
         case 'admin': {
-          const adminResponse = await axios.get(`http://192.168.100.127:3000/admin/getAdmin`, {
+          const adminResponse = await axios.get(`http://db-production-c620.up.railway.app/admin/getAdmin`, {
             headers: { 'Content-Type': 'application/json' },
             params: { username, password },
           });
@@ -30,14 +30,14 @@ export function useGetItems() {
           }
         }
         case 'clients': {
-          const clientResponse = await axios.get<Client[]>('http://192.168.100.127:3000/user/getUserList');
+          const clientResponse = await axios.get<Client[]>('http://db-production-c620.up.railway.app/user/getUserList');
           setClients(clientResponse.data);
           console.log('Client IDs:', clientResponse.data.map(client => client.UserID));
           setError(null);
           return true;
         }
         case 'messages': {
-          const messagesResponse = await axios.get<Messages[]>('http://192.168.100.127:3000/messaging/getMessage');
+          const messagesResponse = await axios.get<Messages[]>('http://db-production-c620.up.railway.app/messaging/getMessage');
           setMessages(messagesResponse.data);  
           console.log('Messages:', messagesResponse.data);
           setError(null);
