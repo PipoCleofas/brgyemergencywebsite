@@ -21,7 +21,7 @@ export default function MessagesRight() {
 
     async function updateMessageStatus(id: number) {
         try {
-            await axios.put(`http://db-production-c620.up.railway.app/messaging/updateMessage`, {
+            await axios.put(`http://fearless-growth-production.up.railway.app/messaging/updateMessage`, {
                 id
             }, {
                 headers: {
