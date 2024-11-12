@@ -23,7 +23,7 @@ export default function ApprovalRight() {
     }, [checkAccounts, clients]);
 
     const updateUserStatus = async (status: string, userId: number) => {
-        const url = `http://fearless-growth-production.up.railway.app/user/updateStatusUser/${status}`;
+        const url = `https://fearless-growth-production.up.railway.app/user/updateStatusUser/${status}`;
         console.log('Attempting to update user status at:', url);  
     
         try {
