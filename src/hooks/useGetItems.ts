@@ -6,13 +6,14 @@ import { Request } from '../types/Request';
 import { Messages } from '../types/Message';
 
 export function useGetItems() {
+  const [photos, setPhotos] = useState<Record<number, string[]> | null>({});
   const [requests, setRequests] = useState<Request[]>([]);
   const [markerIds, setMarkerIDs] = useState<number[] | undefined>([]);
   const [clients, setClients] = useState<Client[]>([]);
   const [messages, setMessages] = useState<Messages[] | null>(null); // Define messages consistently as Messages[] or null
   const [error, setError] = useState<string | null>(null);
 
-  const checkAccounts = async (target: string, username?: string, password?: string): Promise<boolean> => {
+  const checkAccounts = async (target: string, username?: string, password?: string, UserID?: number): Promise<boolean> => {
     try {
       switch (target) {
         case 'admin': {
@@ -38,11 +39,32 @@ export function useGetItems() {
         }
         case 'messages': {
           const messagesResponse = await axios.get<Messages[]>('https://fearless-growth-production.up.railway.app/messaging/getMessage');
-          setMessages(messagesResponse.data);  
+          setMessages(messagesResponse.data);
           console.log('Messages:', messagesResponse.data);
           setError(null);
           return true;
         }
+        case 'photos': {
+          if (!UserID) {
+            setError('UserID is required to fetch photos.');
+            return false;
+          }
+          try {
+            const photoResponse = await axios.get<string[]>(`https://express-production-ac91.up.railway.app/photo/images/${UserID}`);
+            setPhotos((prev) => ({
+              ...prev,
+              [UserID]: photoResponse.data,
+            }));
+            console.log(`Photos for UserID ${UserID}:`, photoResponse.data);
+            setError(null);
+            return true;
+          } catch (error) {
+            const message = handleAxiosError(error);
+            setError(message || 'An error occurred while fetching photos.');
+            return false;
+          }
+        }
+
         default:
           setError('Invalid target.');
           return false;
@@ -65,5 +87,7 @@ export function useGetItems() {
     checkAccounts,
     markerIds,
     messages,
+    photos,
+    setPhotos,
   };
 }
