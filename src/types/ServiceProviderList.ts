@@ -3,4 +3,4 @@ export interface ServiceProvider {
     ProviderType: string;
     Username: string;
     Phonenumber: number;
-  }
+}
