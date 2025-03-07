@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+/*import { useNavigate } from 'react-router-dom';
 import { useHandleClicks } from '../hooks/useHandleClicks';
 import { useLanguageContext } from '../context/LanguageProvider';
 import { useEffect, useState } from 'react';
@@ -54,4 +54,4 @@ export default function Approvalleft() {
       </div>
     </div>
   );
-}
+}*/

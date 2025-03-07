@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+/*import { useNavigate } from "react-router-dom";
 import { useHandleClicks } from "../hooks/useHandleClicks";
 import { useLanguageContext } from '../context/LanguageProvider';
 import { useEffect, useState } from "react";
@@ -17,7 +17,7 @@ export default function SettingsLeft() {
   }, []);
 
   return (
-    <div className="left-side">
+    <div className="settings-left">
       <div className="profile-section">
         <div className="profile-pic"></div>
         <div className="profile-name">
@@ -33,4 +33,4 @@ export default function SettingsLeft() {
       </div>
     </div>
   );
-}
+}*/

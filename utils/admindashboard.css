@@ -101,12 +101,10 @@ body {
 
 /* Main Content */
 .main {
-  flex: 1; /* Allow main content to fill the remaining space */
-  padding: 0; /* Remove unnecessary padding */
-  margin: 0; /* Ensure there's no margin */
-  background-color: #5594DC; /* Background color for the main section */
-  height: 100vh; /* Full height to match the sidebar */
-  box-sizing: border-box; /* Include padding/border in dimensions */
+  flex: 1;
+  padding: 20px;
+  background-color: #5594DC;
+  transition: margin-left 0.3s;
 }
 
 .dashboard-header {
@@ -132,58 +130,84 @@ body {
   margin-bottom: 20px;
 }
 
+/* Service Providers Section */
+.service-providers,
+.citizens {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
 
-.settings-left {
-  flex: 1;
-  background-color: #6C95C3;
-  color: white;
+.card {
+  background-color: #B2EBF2;
   border-radius: 10px;
   padding: 20px;
+  width: 220px;
+  height: 70px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background-color 0.3s;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.settings-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Align closer to the sidebar */
-  justify-content: flex-start;
-  padding: 20px; /* Space around the content */
-  background-color: #f9f9f9; /* Set a white background */
-  border-radius: 10px; /* Rounded corners for the card */
-  width: auto; /* Change to auto or a specific width */
-  max-width: 800px; /* Optional: set a maximum width for the card */
-  box-sizing: border-box; /* Include padding/border in dimensions */
-  margin-left: 0; /* Ensure no margin is pushing it to the right */
+.card:hover {
+  transform: scale(1.05);
+  background-color: #80DEEA;
 }
 
-.settings-header {
-  font-size: 24px;
+.card .icon {
+  font-size: 2rem;
+  margin-right: 15px;
+}
+
+.card h3 {
+  margin: 0 0 5px;
+  font-size: 1.2rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 16px; /* Spacing between header and content */
 }
 
-
-/* Language Option Card */
-.language-option {
-  display: flex;
-  align-items: left;
-  justify-content: flex-start;
-  padding: 10px 15px;
-  background-color: #f1f1f1;
-  color: #333;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+/* Citizens Section */
+.citizens .card {
+  background-color: #A0153E;
 }
 
-.language-option:hover {
-  background-color: #d8e7f5;
+.citizens .card .icon {
+  font-size: 2rem;
+  margin-right: 15px;
 }
 
-.language-option.active {
-  background-color: #007bff;
+.citizens .card h3 {
+  margin: 0 0 5px;
+  font-size: 1.2rem;
+}
+
+.citizens .card p {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Active Sidebar Item */
+.sidebar ul li.active {
+  background-color: #008BBD;
+  border-radius: 50px;
   color: white;
+}
+
+.sidebar ul li.active a {
+  color: white;
+}
+
+/* Transition effects */
+.sidebar ul li,
+.card {
+  transition: all 0.3s ease-in-out;
 }

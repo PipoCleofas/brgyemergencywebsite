@@ -1,54 +1,46 @@
-import { useNavigate } from 'react-router-dom';
-import { useHandleClicks } from '../hooks/useHandleClicks';
+import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguageContext } from '../context/LanguageProvider';
-import { useEffect, useState } from 'react';
+import { useHandleClicks } from '../hooks/useHandleClicks';
 
-export default function Approvalleft() {
-  const navigate = useNavigate();  
-  const { handleNavClick } = useHandleClicks();  
-  const { translations, language } = useLanguageContext();
-  const [username, setUsername] = useState<string | null>(null);
+const ApprovalLeft = () => {
+  const { language } = useLanguageContext();
+  const { handleNavClick } = useHandleClicks();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  useEffect(() => {
-    const storedUsername = localStorage.getItem('username');
-    setUsername(storedUsername);
-  }, []);
+  const isActive = (path: string) => {
+    return location.pathname === path ? 'active' : '';
+  };
 
   return (
-    <div className='left-side'>
-      <div className='profile-section'>
-        <div className='profile-pic'></div>
-        <div className='profile-name'>
-          <h3>Administrator</h3>
-          <p style={{ marginBottom: '45px' }}>{username || "Guest"}</p>
+    <div className="sidebar">
+      <div className="avatar-container">
+        <div className="avatar">
+          <img src="https://via.placeholder.com/100" alt="Avatar" />
         </div>
-        <ul className='nav-list'>
-          <li 
-            onClick={() => handleNavClick(navigate, '/admindashboard')}
-            style={{ marginBottom: '20px', padding: '20px', border: 'none', borderRadius: '0' }}
-          >
-            {translations[language].home} 
-          </li>
-          <li 
-            className='active'
-            style={{ marginBottom: '20px', padding: '20px', border: 'none', borderRadius: '0' }}
-          >
-            {translations[language].approval}  
-          </li>
-          <li 
-            onClick={() => handleNavClick(navigate, '/settings')}
-            style={{ marginBottom: '20px', padding: '20px', border: 'none', borderRadius: '0' }}
-          >
-            {translations[language].settings} 
-          </li>
-          <li 
-            onClick={() => handleNavClick(navigate, '/history')}
-            style={{ marginBottom: '20px', padding: '20px', border: 'none', borderRadius: '0' }}
-            >
-              History
-          </li>
-        </ul>
+        <h3>Admin Name</h3>
+        <p>Admin Role</p>
       </div>
+      <ul>
+        {[
+          { label: 'Home', icon: '🏠', path: '/admindashboard' },
+          { label: 'Approval', icon: '✅', path: '/approval' },
+          { label: 'Settings', icon: '⚙️', path: '/settings' },
+          { label: 'History', icon: '📜', path: '/history' },
+        ].map((item, index) => (
+          <li
+            key={index}
+            className={isActive(item.path)}
+            onClick={() => handleNavClick(navigate, item.path)}
+          >
+            <span>{item.icon}</span>
+            <a href="">{item.label}</a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
+
+export default ApprovalLeft;

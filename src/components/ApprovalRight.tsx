@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useGetItems } from "../hooks/useGetItems";
-import { useLanguageContext } from "../context/LanguageProvider";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useGetItems } from '../hooks/useGetItems';
 
-export default function ApprovalRight() {
+const ApprovalRight = () => {
   const { checkAccounts, clients, photos, setPhotos } = useGetItems();
   const [loading, setLoading] = useState(true);
   const [updatingStatus, setUpdatingStatus] = useState<number | null>(null);
-  const { translations, language } = useLanguageContext();
-  const t = translations[language];
+  const [sidebarVisible, setSidebarVisible] = useState(true);
 
   useEffect(() => {
     const fetchClientsAndPhotos = async () => {
@@ -34,16 +32,12 @@ export default function ApprovalRight() {
     const intervalId = setInterval(fetchClientsAndPhotos, 3000);
     return () => clearInterval(intervalId);
   }, [checkAccounts, clients]);
-  
-
-
-  
 
   const updateUserStatus = async (status: string, userId: number) => {
     try {
       setUpdatingStatus(userId);
       const response = await axios.put(
-        `https://fearless-growth-production.up.railway.app/user/updateStatusUser/${status}`,
+        `https://express-production-ac91.up.railway.app/user/updateStatusUser/${status}`,
         { UserID: userId },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -63,80 +57,51 @@ export default function ApprovalRight() {
   }
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        width: "100vw",
-        padding: "40px",
-        backgroundColor: "#f5d2d1",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        margin: 0,
-        boxSizing: "border-box",
-      }}
-    >
-      {filteredClients.slice(0, 3).map((user) => (
-  <div
-    key={user.UserID}
-    style={{
-      backgroundColor: "#e0e0e0",
-      padding: "20px",
-      marginBottom: "20px",
-      borderRadius: "10px",
-      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-      width: "100%",
-      maxWidth: "500px",
-    }}
-  >
-    <p style={{ marginBottom: "10px", fontSize: "18px" }}>User ID: {user.UserID}</p>
-    <p style={{ marginBottom: "10px", fontSize: "18px" }}>Username: {user.Username}</p>
-    <p style={{ marginBottom: "10px", fontSize: "18px" }}>First Name: {user.FirstName}</p>
-    <p style={{ marginBottom: "10px", fontSize: "18px" }}>Last Name: {user.LastName}</p>
-
-
-
-    <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+    <div className="main-content">
       <button
-        style={{
-          padding: "10px 20px",
-          fontSize: "16px",
-          borderRadius: "5px",
-          border: "none",
-          cursor: "pointer",
-          backgroundColor: "#5cb85c",
-          color: "#fff",
-          transition: "background-color 0.3s",
-          opacity: updatingStatus === user.UserID ? 0.6 : 1,
-          pointerEvents: updatingStatus === user.UserID ? "none" : "auto",
-        }}
-        onClick={() => updateUserStatus("approved", user.UserID)}
-        disabled={updatingStatus === user.UserID}
+        className="toggle-sidebar"
+        onClick={() => setSidebarVisible(!sidebarVisible)}
       >
-        {t.approve}
+        ☰
       </button>
-      <button
-        style={{
-          padding: "10px 20px",
-          fontSize: "16px",
-          borderRadius: "5px",
-          border: "none",
-          cursor: "pointer",
-          backgroundColor: "#d9534f",
-          color: "#fff",
-          transition: "background-color 0.3s",
-          opacity: updatingStatus === user.UserID ? 0.6 : 1,
-          pointerEvents: updatingStatus === user.UserID ? "none" : "auto",
-        }}
-        onClick={() => updateUserStatus("rejected", user.UserID)}
-        disabled={updatingStatus === user.UserID}
-      >
-        {t.reject}
-      </button>
-    </div>
-  </div>
-      ))}
-
+      <div className="dashboard-header">
+        <h1>Approval</h1>
+      </div>
+      <div className="table-container">
+        <table className="approval-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredClients.map((user) => (
+              <tr key={user.UserID}>
+                <td>{user.FirstName} {user.LastName}</td>
+                <td>{user.Status}</td>
+                <td>
+                  <button
+                    className="approve-btn"
+                    onClick={() => updateUserStatus('approved', user.UserID)}
+                  >
+                    ✅ Approve
+                  </button>
+                  <button
+                    className="reject-btn"
+                    onClick={() => updateUserStatus('rejected', user.UserID)}
+                  >
+                    ❌ Reject
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
-}
+};
+
+export default ApprovalRight;
