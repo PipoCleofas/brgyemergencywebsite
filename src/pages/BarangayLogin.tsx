@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useHandleClicks } from '../hooks/useHandleClicks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import '../../utils/adminlogin.css';
+import '../../utils/barangaylogin.css'; // Make sure this path is correct
 
-export default function AdminLogin() {
+export default function BarangayLogin() {
   const navigate = useNavigate();
   const { onLoginClick } = useHandleClicks();
   const [showPassword, setShowPassword] = useState(false);
@@ -21,8 +21,8 @@ export default function AdminLogin() {
 
   return (
     <div className="container">
-      <img src="logo.png" alt="Rescue Link Logo"/>
-      <h2>ADMIN LOGIN</h2>
+      <img src="logo.png" alt="Rescue Link Logo" />
+      <h2>BARANGAY LOGIN</h2>
       <form onSubmit={handleLogin}>
         <div className="input-container">
           <input

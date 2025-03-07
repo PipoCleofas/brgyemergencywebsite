@@ -6,7 +6,7 @@ import { Request } from '../types/Request';
 import { Messages } from '../types/Message';
 
 export function useGetItems() {
-  const [photos, setPhotos] = useState<Record<number, string[]> | null>({});
+  const [photos, setPhotos] = useState<any>();
   const [requests, setRequests] = useState<Request[]>([]);
   const [markerIds, setMarkerIDs] = useState<number[] | undefined>([]);
   const [clients, setClients] = useState<Client[]>([]);
@@ -18,7 +18,7 @@ export function useGetItems() {
     try {
       switch (target) {
         case 'admin': {
-          const adminResponse = await axios.get(`https://fearless-growth-production.up.railway.app/admin/getAdmin`, {
+          const adminResponse = await axios.get(`https://express-production-ac91.up.railway.app/admin/getAdmin`, {
             headers: { 'Content-Type': 'application/json' },
             params: { username, password },
           });
@@ -32,14 +32,14 @@ export function useGetItems() {
           }
         }
         case 'clients': {
-          const clientResponse = await axios.get<Client[]>('https://fearless-growth-production.up.railway.app/user/getUserList');
+          const clientResponse = await axios.get<Client[]>('https://express-production-ac91.up.railway.app/user/getUserList');
           setClients(clientResponse.data);
           console.log('Client IDs:', clientResponse.data.map(client => client.UserID));
           setError(null);
           return true;
         }
         case 'messages': {
-          const messagesResponse = await axios.get<Messages[]>('https://fearless-growth-production.up.railway.app/messaging/getMessage');
+          const messagesResponse = await axios.get<Messages[]>('https://express-production-ac91.up.railway.app/messaging/getMessage');
           setMessages(messagesResponse.data);
           console.log('Messages:', messagesResponse.data);
           setError(null);
@@ -52,11 +52,12 @@ export function useGetItems() {
           }
           try {
             const photoResponse = await axios.get<string[]>(`https://express-production-ac91.up.railway.app/photo/images/${UserID}`);
-            setPhotos((prev) => ({
-              ...prev,
-              [UserID]: photoResponse.data,
-            }));
-            console.log(`Photos for UserID ${UserID}:`, photoResponse.data);
+        
+            const photoData = photoResponse.data; // This is an array of URLs
+        
+            setPhotos(photoData);
+        
+            console.log(`Photos for UserID ${UserID}:`, photoData);
             setError(null);
             return true;
           } catch (error) {
@@ -65,6 +66,7 @@ export function useGetItems() {
             return false;
           }
         }
+        
 
         default:
           setError('Invalid target.');

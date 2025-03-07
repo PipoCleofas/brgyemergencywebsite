@@ -9,6 +9,9 @@ interface LanguageContextProps {
       greeting: string;
       viewRequest: string;
       approval: string;
+      approval1: string;
+      approved: string;
+      rejected: string;
       home: string;
       settings: string;
       approve: string;
@@ -17,7 +20,30 @@ interface LanguageContextProps {
       firefighter: string;
       medical: string;
       serviceprovidernumber: string;
+      serviceprovider: string;
       chooselang: string;
+      language_desc: string;
+      asstreport: string;
+      citizens: string;
+      disaster: string;
+      users: string;
+      usermanagement: string;
+      firstname: string;
+      middlename: string;
+      lastname: string;
+      birthday: string;
+      frontid: string;
+      backid: string;
+      status: string;
+      view: string;
+      name: string;
+      type: string;
+      date: string;
+      location: string;
+      respondent: string;
+      comment: string;
+      message: string;
+      transferlogs: string;
     };
   };
 }
@@ -52,29 +78,81 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       greeting: 'Hello',
       viewRequest: 'View Request',
       approval: 'Approval',
+      approval1: 'APPROVAL',
+      approved: 'Approved',
+      rejected: 'Rejected',
       home: 'Home',
       settings: 'Settings',
+      transferlogs: 'Transfer Logs',
       approve: 'Approve',
       reject: 'Reject',
       police: 'Police',
       firefighter: 'Firefighter',
       medical: 'Medical',
       serviceprovidernumber: 'Number of Registered Service Providers',
-      chooselang: 'Choose language',
+      chooselang: 'Select Language:',
+      language_desc: 'Choose your preferred language for the application.',
+      asstreport: 'Assistance Report',
+      serviceprovider: 'SERVICE PROVIDERS',
+      citizens: 'CITIZENS',
+      disaster: 'Disaster',
+      users: 'Users',
+      usermanagement: 'User Management',
+      firstname: 'FIRST NAME',
+      middlename: 'MIDDLE NAME',
+      lastname: 'LAST NAME',
+      birthday: 'BIRTHDAY',
+      frontid: 'FRONT ID',
+      backid: 'BACK ID',
+      status: 'STATUS',
+      view: 'View',
+      name: 'NAME',
+      type: 'TYPE',
+      date: 'DATE',
+      location: 'LOCATION',
+      respondent: 'RESPONDENT',
+      comment: 'COMMENT',
+      message: 'MESSAGE',
     },
     Filipino: {
       greeting: 'Kamusta',
       viewRequest: 'Tingnan ang Kahilingan',
       approval: 'Pag-apruba',
-      home: 'Bahay',
+      approval1: 'PAG-APRUBA',
+      approved: 'Inaprubahan',
+      rejected: 'Tinanggihan',
+      home: 'Bungad',
       settings: 'Mga Setting',
+      transferlogs: 'Mga Log ng Paglilipat',
       approve: 'Aprubahan',
       reject: 'Tanggihan',
       police: 'Pulis',
       firefighter: 'Bumbero',
       medical: 'Medikal',
       serviceprovidernumber: 'Bilang ng Mga Rehistradong Tagabigay ng Serbisyo',
-      chooselang: 'Pumili ng wika',
+      chooselang: 'Pumili ng wika:',
+      language_desc: 'Mamili ng wika para as application.',
+      asstreport: 'Ulat ng Tulong',
+      serviceprovider: 'TAGAPAGBIGAY NG SERBISYO',
+      citizens: 'MGA MAMAMAYAN',
+      disaster: 'Sakuna',
+      users: 'Mga Users',
+      usermanagement: 'Pagmamanage ng User',
+      firstname: 'UNANG PANGALAN',
+      middlename: 'GITNANG PANGALAN',
+      lastname: 'APELYIDO',
+      birthday: 'KAARAWAN',
+      frontid: 'HARAP NA ID',
+      backid: 'LIKOD NA ID',
+      status: 'ISTADO',
+      view: 'Tignan',
+      name: 'PANGALAN',
+      type: 'URI',
+      date: 'PETSA',
+      location: 'LOKASYON',
+      respondent: 'RUMERESPONDE',
+      comment: 'KOMENTARYO',
+      message: 'MENSAHE',
     },
   };
 

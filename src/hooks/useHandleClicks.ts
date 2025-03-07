@@ -13,20 +13,21 @@ export const useHandleClicks = () => {
   };
 
   const onLoginClick = async (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>, 
-    navigate: any,
+    e: React.FormEvent<HTMLFormElement>,
+    navigate: (path: string) => void,
     username: string,
     password: string
   ) => {
     e.preventDefault();
-  
+
     try {
       const isAdminValid = await checkAccounts('admin', username, password);
 
-      localStorage.setItem('username', username); 
-  
       if (isAdminValid) {
-        navigate('/AdminDashboard'); 
+        localStorage.setItem('username', username);
+        navigate('/AdminDashboard');
+      } else {
+        console.error('Invalid credentials');
       }
     } catch (error) {
       console.error("Error during login click:", error);
@@ -36,6 +37,6 @@ export const useHandleClicks = () => {
   return {
     onLoginClick,
     handleNavClick,
-    error 
+    error,
   };
 };

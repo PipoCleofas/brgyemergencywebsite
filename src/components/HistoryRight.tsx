@@ -1,90 +1,69 @@
-import { useEffect, useState } from 'react';
-import { useGetItems } from '../hooks/useGetItems';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useGetItems } from '../hooks/useGetItems';
 
-export default function MessagesRight() {
-    const { checkAccounts, messages } = useGetItems();
-    const [loading, setLoading] = useState(true);
+const ApprovalRight = () => {
+  const { checkAccounts, clients } = useGetItems();
+  const [sidebarVisible, setSidebarVisible] = useState(true);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            await checkAccounts('messages');
-            setLoading(false);
-        };
+  useEffect(() => {
+    checkAccounts('clients');
+  }, [checkAccounts]);
 
-        fetchData();
-    }, [checkAccounts]);
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    async function updateMessageStatus(id: number) {
-        try {
-            await axios.put(`https://fearless-growth-production.up.railway.app/messaging/updateMessage`, {
-                id
-            }, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            console.log(`Message with ID ${id} updated successfully`);
-        } catch (err) {
-            console.error('Error updating message status:', err);
-        }
-    }
-
-    // Divide messages into three groups for each column
-    const groupedMessages = [[], [], []];
-    messages.forEach((message, index) => {
-        groupedMessages[index % 3].push(message);
-    });
-
-    return (
-        <div style={{ 
-            minHeight: '100vh', 
-            width: '100vw',
-            padding: '40px', 
-            backgroundColor: '#f5d2d1', 
-            display: 'flex', 
-            justifyContent: 'center',
-            gap: '20px',
-            boxSizing: 'border-box'
-        }}>
-            {groupedMessages.map((group, colIndex) => (
-                <div key={colIndex} style={{
-                    backgroundColor: '#f5d2d1',
-                    padding: '20px',
-                    borderRadius: '10px',
-                    flex: '1',
-                    maxWidth: '300px',
-                    minHeight: '400px',
-                    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-                    overflowY: 'auto',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '10px' // Space between messages
-                }}>
-                    {group.length > 0 ? (
-                        group.map((message) => (
-                            <div
-                                key={message.id} 
-                                style={{
-                                    backgroundColor: '#e0e0e0',
-                                    padding: '15px',
-                                    borderRadius: '8px',
-                                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-                                    flex: '1' // Makes each message take up available width
-                                }}
-                            >
-                                <p style={{ fontSize: '14px', margin: 0 }}>Message: {message.message}</p>
-                            </div>
-                        ))
-                    ) : (
-                        <p>No messages available.</p>
-                    )}
-                </div>
-            ))}
-        </div>
+  const updateUserStatus = async (status: string, userId: number) => {
+    await axios.put(
+      `https://your-api-url.com/user/updateStatusUser/${status}`,
+      { UserID: userId }
     );
-}
+    checkAccounts('clients');
+  };
+
+  return (
+    <div className="main-content">
+      <button
+        className="toggle-sidebar"
+        onClick={() => setSidebarVisible(!sidebarVisible)}
+      >
+        ☰
+      </button>
+      <div className="dashboard-header">
+        <h1>Approval</h1>
+      </div>
+      <div className="table-container">
+        <table className="approval-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {clients.map((user) => (
+              <tr key={user.UserID}>
+                <td>{user.FirstName} {user.LastName}</td>
+                <td>{user.Status}</td>
+                <td>
+                  <button
+                    className="approve-btn"
+                    onClick={() => updateUserStatus('approved', user.UserID)}
+                  >
+                    ✅ Approve
+                  </button>
+                  <button
+                    className="reject-btn"
+                    onClick={() => updateUserStatus('rejected', user.UserID)}
+                  >
+                    ❌ Reject
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default ApprovalRight;

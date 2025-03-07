@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #E0F7FA; /* Light blue pastel background */
+  background-image: url('data:image/svg+xml;utf8,<svg width="765" height="708" viewBox="0 0 765 708" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect x="-38.5" y="-12.5" width="803" height="720" fill="url(#pattern0_239_31)" stroke="black"/><defs><pattern id="pattern0_239_31" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#image0_239_31" transform="matrix(0.00249102 0 0 0.00277778 -0.29588 0)"/></pattern><image id="image0_239_31" width="639" height="360" xlink:href="data:image/jpeg;base64,..."/></defs></svg>');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height for perfect centering */
+}
+
+.Home {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding: 100px;
+  color: #333; /* Darkened for better readability */
+}
+
+.monserat {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); 
+  color: #333;
+  margin-bottom: 20px;
+}
+
+
+/* Admin and Barangay Buttons */
+#adminbutton, #barangaybutton {
+  border-radius: 50px;
+  border: none;
+  height: 54px;
+  width: 200px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#adminbutton {
+  background-color: #6CB4D8;
+  color: black;
+  border: 2px solid #6CB4D8;
+}
+
+#barangaybutton {
+  background-color: #D86CB0; 
+  color: black;
+  border: 2px solid #D86CB0;
+}
+
+#adminbutton:hover {
+  background-color: #5A9EC8;
+  border-color: #4A9BC8;
+  transform: scale(1.1);
+}
+
+#barangaybutton:hover {
+  background-color: #C658A0;
+  border-color: #D76E9B;
+  transform: scale(1.1);
+}
