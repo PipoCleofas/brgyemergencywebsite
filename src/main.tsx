@@ -12,6 +12,7 @@ import './index.css';
 import BarangayLogin from './pages/BarangayLogin';
 import HomePage from './pages/HomePage';
 import TransferLogs from './pages/TransferLogs';
+import BarangayMainPage from './pages/BarangayMainPage';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/settings" element={<Settings />} />
           <Route path="/asstreport" element={<AssistanceReport />} />
           <Route path="/transferlogs" element={<TransferLogs />} />
+          <Route path="/mainpage" element={<BarangayMainPage />} />
 
         </Routes>
       </Router>

@@ -14,7 +14,7 @@ export default function Approval() {
     image2: string;
     image3: string;
   }
-  const { checkAccounts, clients, photos, getPhotos } = useGetItems();
+  const { checkAccounts, clients, photos } = useGetItems();
   const [sidebarVisible, setSidebarVisible] = useState(true);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -34,26 +34,36 @@ export default function Approval() {
   useEffect(() => {
     const fetchClientsAndPhotos = async () => {
       const success = await checkAccounts("clients");
-
+  
       if (success) {
         console.log("✅ Clients fetched:", clients);
-
-        for (const client of clients) {
+  
+        // Fetch photos for each client after clients have been fetched
+        const fetchPhotoPromises = clients.map((client) => {
           if (client.UserID) {
-            const photosSuccess = await checkAccounts("photos", undefined, undefined, client.UserID);
-            console.log(`✅ Photos for User ${client.UserID}:`, photosSuccess);
+            return checkAccounts("photos", undefined, undefined, client.UserID);
           }
-        }
+        });
+  
+        await Promise.all(fetchPhotoPromises);
+  
+        console.log("✅ All photos fetched:", photos);
       }
-
+  
       setLoading(false);
     };
-
+  
     fetchClientsAndPhotos();
     const intervalId = setInterval(fetchClientsAndPhotos, 3000);
     return () => clearInterval(intervalId);
-  }, [checkAccounts, clients]);
+  }, []); // Removed `clients` from dependencies to avoid unnecessary re-runs
+  
 
+  useEffect(() => {
+    console.log("Updated Photos:", photos);
+  }, [photos]);
+
+  
   const updateUserStatus = async (status: string, userId: number) => {
     try {
       setUpdatingStatus(userId);
@@ -142,36 +152,48 @@ export default function Approval() {
               </tr>
             </thead>
             <tbody>
-              {filteredClients.map((user) => {
-                // Find the photos for the current user
-                const userPhotos = photos?.find((photo: Photo) => photo.UserID === user.UserID)
+            {filteredClients.map((user) => {
+  const userPhotos = photos?.find((photo: Photo) => photo.UserID === user.UserID) || {};
 
-                return (
-                  <tr key={user.UserID}>
-                    <td>{user.FirstName}</td>
-                    <td>{user.MiddleName}</td>
-                    <td>{user.LastName}</td>
-                    <td>{user.Birthday}</td>
+  console.log("🔍 Checking userPhotos:", user.UserID, userPhotos); // Debugging
 
-                    {/* Photo columns */}
-                    <td>
-                      <button className="view-btn" onClick={() => window.open(userPhotos.image1, '_blank')}>{t.view}</button>
-                    </td>
-                    <td>
-                      <button className="view-btn" onClick={() => window.open(userPhotos.image2, '_blank')}>{t.view}</button>
-                    </td>
-                    <td>
-                      <button className="view-btn" onClick={() => window.open(userPhotos.image3, '_blank')}>{t.view}</button>
-                    </td>
+  return (
+    <tr key={user.UserID}>
+      <td>{user.FirstName}</td>
+      <td>{user.MiddleName}</td>
+      <td>{user.LastName}</td>
+      <td>{user.Birthday}</td>
 
-                    <td>{user.Status}</td>
-                    <td>
-                      <button className="approve-btn" onClick={() => updateUserStatus("approved", user.UserID)} disabled={updatingStatus === user.UserID}>{t.approve}</button>
-                      <button className="reject-btn" onClick={() => updateUserStatus("rejected", user.UserID)} disabled={updatingStatus === user.UserID}>{t.reject}</button>
-                    </td>
-                  </tr>
-                );
-              })}
+      {/* Ensure userPhotos.image1 exists before trying to open */}
+      <td>
+        <button className="view-btn" onClick={() => userPhotos.image1 && window.open(userPhotos.image1, '_blank')}>
+          {t.view}
+        </button>
+      </td>
+      <td>
+        <button className="view-btn" onClick={() => userPhotos.image2 && window.open(userPhotos.image2, '_blank')}>
+          {t.view}
+        </button>
+      </td>
+      <td>
+        <button className="view-btn" onClick={() => userPhotos.image3 && window.open(userPhotos.image3, '_blank')}>
+          {t.view}
+        </button>
+      </td>
+
+      <td>{user.Status}</td>
+      <td>
+        <button className="approve-btn" onClick={() => updateUserStatus("approved", user.UserID)} disabled={updatingStatus === user.UserID}>
+          {t.approve}
+        </button>
+        <button className="reject-btn" onClick={() => updateUserStatus("rejected", user.UserID)} disabled={updatingStatus === user.UserID}>
+          {t.reject}
+        </button>
+      </td>
+    </tr>
+  );
+})}
+
             </tbody>
           </table>
         </div>

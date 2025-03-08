@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useHandleClicks } from '../hooks/useHandleClicks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import '../../utils/barangaylogin.css'; // Make sure this path is correct
+import { useHandleClicks } from '../hooks/useHandleClickBarangay';
 
 export default function BarangayLogin() {
   const navigate = useNavigate();
-  const { onLoginClick } = useHandleClicks();
+  const { handlePasswordChange, handleUsernameChange, error, onLoginClick, username, password } = useHandleClicks();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const onLogin = (e: any) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const username = formData.get('username') as string;
-    const password = formData.get('password') as string;
-
     onLoginClick(e, navigate, username, password);
   };
 
@@ -23,13 +19,14 @@ export default function BarangayLogin() {
     <div className="container">
       <img src="logo.png" alt="Rescue Link Logo" />
       <h2>BARANGAY LOGIN</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={onLogin}>
         <div className="input-container">
           <input
             type="text"
             name="username"
             placeholder="Username"
             required
+            onChange={(e) => handleUsernameChange(e.target.value)}
           />
         </div>
         <div className="input-container">
@@ -38,6 +35,7 @@ export default function BarangayLogin() {
             name="password"
             placeholder="Password"
             required
+            onChange={(e) => handlePasswordChange(e.target.value)}
           />
           <button
             type="button"
@@ -48,6 +46,7 @@ export default function BarangayLogin() {
             <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
           </button>
         </div>
+        {error && <p className="error-message" style={{color: 'red', marginBottom: 5}}>{error}</p>}
         <input type="submit" value="Sign in" />
       </form>
     </div>
