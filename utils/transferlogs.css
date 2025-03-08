@@ -1,163 +1,250 @@
-/* General Styles */
 body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    display: flex;
-    height: 100vh;
-    background-color: #E0F7FA;
-  }
-  
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  height: 100vh;
+  background-color: #E0F7FA;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #6C95C3;
+  padding: 20px;
+  color: white;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.sidebar ul li:hover {
+  background-color: #008BBD;
+  border-radius: 50px;
+}
+
+.sidebar ul li.active {
+  background-color: #008BBD;
+  border-radius: 50px;
+}
+
+/* Avatar Section */
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.avatar-container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+.avatar-container h3,
+.avatar-container p {
+  color: white;
+  margin: 5px 0;
+}
+
+.avatar-container h3 {
+  font-size: 1rem;
+}
+
+.avatar-container p {
+  font-size: 0.8rem;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #5594DC;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #6CB4D8;
+  padding-bottom: 10px;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 15px;
+  padding: 5px;
+}
+
+.header h1 {
+  color: white;
+}
+
+.toggle-sidebar {
+  cursor: pointer;
+  width: 30px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* Table Container */
+.table-container {
+  margin: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  flex: 1;
+}
+
+
+/* Responsive Table */
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  color: #333;
+  table-layout: fixed;
+}
+
+.responsive-table th {
+  background-color: #5594DC;
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  position: sticky;
+  top: 0;
+}
+
+.responsive-table th:first-child {
+  width: 60px;
+}
+
+.responsive-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.responsive-table td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.message-cell {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .sidebar {
-    width: 250px;
-    background-color: #6C95C3;
-    padding: 20px;
-    color: white;
+    width: 60px;
   }
   
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
+  .sidebar-label {
+    display: none;
   }
   
-  .sidebar ul li {
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  .sidebar-icon {
+    margin-right: 0;
   }
   
-  .sidebar ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-  }
-  
-  .sidebar ul li:hover {
-    background-color: #008BBD;
-    border-radius: 50px;
-  }
-  
-  .sidebar ul li.active {
-    background-color: #008BBD;
-    border-radius: 50px;
-  }
-  
-  /* Avatar Section */
-  .avatar-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  
-  .avatar-container img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
-  }
-  
-  .avatar-container h3,
-  .avatar-container p {
-    color: white;
-    margin: 5px 0;
-  }
-  
-  .avatar-container h3 {
-    font-size: 1rem;
-  }
-  
-  .avatar-container p {
-    font-size: 0.8rem;
-  }
-  
-  /* Main Content */
-  .main-content {
-    flex: 1;
-    padding: 20px;
-    background-color: #5594DC;
-  }
-  
-  .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #6CB4D8;
-    padding-bottom: 10px;
-  }
-  
-  .dashboard-header h1 {
-    color: white;
-  }
-  
-  .toggle-sidebar {
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-  
-  /* Table Styles */
-  .table-container {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .approval-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .approval-table th {
-    background-color: #5594DC;
-    color: white;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .approval-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+  .responsive-table {
+    display: block;
   }
 
-  
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
+  .responsive-table thead {
+    display: none;
+  }
+
+  .responsive-table tbody,
+  .responsive-table tr,
+  .responsive-table td {
+    display: block;
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
-  
-  .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
+
+  .responsive-table tr {
+    margin-bottom: 12px;
+    border-bottom: 2px solid #5594DC;
+  }
+
+  .responsive-table td {
+    padding: 8px 15px;
+    padding-left: 45%;
     position: relative;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  .responsive-table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    width: 40%;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 0;
+    position: absolute;
+    z-index: 10;
+    height: 100%;
   }
   
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 20px;
-    cursor: pointer;
+  .sidebar.open {
+    width: 190px;
   }
+  
+  .sidebar-label {
+    display: block;
+  }
+  
+  .responsive-table td {
+    padding-left: 8px;
+    padding-top: 30px;
+  }
+  
+  .responsive-table td:before {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 100%;
+  }
+}
