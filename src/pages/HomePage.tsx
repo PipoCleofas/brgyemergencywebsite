@@ -18,9 +18,11 @@ export default function HomePage() {
       <p className="monserat"><b>YOUR SAFETY</b></p>
       <p className="monserat"><b>IS OUR</b></p>
       <p className="monserat"><b>PRIORITY</b></p>
-      
-      <button id="adminbutton" onClick={() => handleNavClick(navigate, '/adminlogin')}>SIGN IN (ADMIN)</button>
-      <button id="barangaybutton" onClick={() => handleNavClick(navigate, '/barangaylogin')}>SIGN IN (BARANGAY)</button>
+
+      <div className="button-container">
+      <button className= "adminbutton" id="adminbutton" onClick={() => handleNavClick(navigate, '/adminlogin')}>SIGN IN (ADMIN)</button>
+      <button className = "barangaybutton" id="barangaybutton" onClick={() => handleNavClick(navigate, '/barangaylogin')}>SIGN IN (BARANGAY)</button>
+      </div>
     </div>
   );
 }

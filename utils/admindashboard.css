@@ -1,11 +1,15 @@
 /* General Styles */
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
   display: flex;
   height: 100vh;
   background-color: #E0F7FA;
   transition: margin-left 0.3s;
+  font-family: "Readex Pro", sans-serif;
+}
+
+b {
+  font-family: "Readex Pro", sans-serif;
 }
 
 .sidebar {
@@ -15,6 +19,7 @@ body {
   color: white;
   transition: width 0.3s, opacity 0.3s;
   position: relative;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .sidebar.hidden {
@@ -39,6 +44,7 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .sidebar ul li a {
@@ -49,6 +55,7 @@ body {
   padding: 10px;
   display: block;
   border-radius: 5px;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .sidebar ul li:hover {
@@ -69,6 +76,7 @@ body {
   padding: 20px;
   background-color: transparent;
   cursor: pointer;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .avatar-container img {
@@ -83,6 +91,7 @@ body {
 .avatar-container p {
   color: white;
   margin: 5px 0;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .avatar-container h3 {
@@ -105,6 +114,7 @@ body {
   padding: 20px;
   background-color: #5594DC;
   transition: margin-left 0.3s;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .dashboard-header {
@@ -113,11 +123,13 @@ body {
   align-items: center;
   border-bottom: 2px solid #6CB4D8;
   padding-bottom: 10px;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .dashboard-header h1 {
   margin: 0;
   color: white;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .toggle-sidebar {
@@ -137,6 +149,7 @@ body {
   display: flex;
   justify-content: space-around;
   gap: 20px;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .card {
@@ -151,6 +164,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .card:hover {
@@ -166,17 +180,20 @@ body {
 .card h3 {
   margin: 0 0 5px;
   font-size: 1.2rem;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .card p {
   margin: 0;
   font-size: 1.2rem;
   font-weight: bold;
+  font-family: "Readex Pro", sans-serif;
 }
 
 /* Citizens Section */
 .citizens .card {
   background-color: #A0153E;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .citizens .card .icon {

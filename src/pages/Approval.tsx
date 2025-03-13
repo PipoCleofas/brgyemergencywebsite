@@ -6,6 +6,7 @@ import { useGetItems } from "../hooks/useGetItems";
 import axios from 'axios';
 import '../../utils/Home.css';
 import '../../utils/approval.css';
+import "@fontsource/readex-pro";
 
 export default function Approval() {
   interface Photo {
@@ -56,7 +57,7 @@ export default function Approval() {
     fetchClientsAndPhotos();
     const intervalId = setInterval(fetchClientsAndPhotos, 3000);
     return () => clearInterval(intervalId);
-  }, []); // Removed `clients` from dependencies to avoid unnecessary re-runs
+  }, [clients,photos]); // Removed `clients` from dependencies to avoid unnecessary re-runs
   
 
   useEffect(() => {
@@ -135,7 +136,7 @@ export default function Approval() {
           <h1 style={{ margin: 0, color: 'white' }}>{t.approval}</h1>
         </div>
 
-        <p style={{ textAlign: 'center', color: 'white', marginTop: '20px' }}><b>{t.usermanagement}</b></p>
+        <p style={{ textAlign: 'center', color: 'white', marginTop: '20px', fontFamily: "'Readex Pro', sans-serif" }}><b>{t.usermanagement}</b></p>
         <div className="table-container">
           <table className="approval-table">
             <thead>

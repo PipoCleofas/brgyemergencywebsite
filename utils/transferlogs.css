@@ -1,9 +1,14 @@
+/* General Styles */
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Readex Pro", sans-serif;
   display: flex;
   height: 100vh;
   background-color: #E0F7FA;
+}
+
+h1 {
+  font-family: "Readex Pro", sans-serif;
 }
 
 .sidebar {
@@ -11,6 +16,7 @@ body {
   background-color: #6C95C3;
   padding: 20px;
   color: white;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .sidebar ul {
@@ -23,6 +29,7 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .sidebar ul li a {
@@ -30,6 +37,7 @@ body {
   text-decoration: none;
   font-weight: bold;
   padding: 10px;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .sidebar ul li:hover {
@@ -83,6 +91,7 @@ body {
   color: white;
   overflow-x: hidden;
   overflow-y: auto;
+  font-family: "Readex Pro", sans-serif;
 }
 
 /* Header */
@@ -92,6 +101,7 @@ body {
   align-items: center;
   border-bottom: 2px solid #6CB4D8;
   padding-bottom: 10px;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .menu-button {
@@ -102,10 +112,12 @@ body {
   cursor: pointer;
   margin-right: 15px;
   padding: 5px;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .header h1 {
   color: white;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .toggle-sidebar {
@@ -127,6 +139,7 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
   flex: 1;
+  font-family: "Readex Pro", sans-serif;
 }
 
 
@@ -137,6 +150,7 @@ body {
   font-size: 14px;
   color: #333;
   table-layout: fixed;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .responsive-table th {
@@ -146,14 +160,17 @@ body {
   text-align: left;
   position: sticky;
   top: 0;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .responsive-table th:first-child {
   width: 60px;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .responsive-table tr:nth-child(even) {
   background-color: #f9f9f9;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .responsive-table td {
@@ -161,21 +178,25 @@ body {
   border-bottom: 1px solid #eee;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .message-cell {
   white-space: normal;
   word-break: break-word;
+  font-family: "Readex Pro", sans-serif;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .sidebar {
     width: 60px;
+    font-family: "Readex Pro", sans-serif;
   }
   
   .sidebar-label {
     display: none;
+    font-family: "Readex Pro", sans-serif;
   }
   
   .sidebar-icon {
@@ -184,10 +205,12 @@ body {
   
   .responsive-table {
     display: block;
+    font-family: "Readex Pro", sans-serif;
   }
 
   .responsive-table thead {
     display: none;
+    font-family: "Readex Pro", sans-serif;
   }
 
   .responsive-table tbody,
@@ -195,11 +218,13 @@ body {
   .responsive-table td {
     display: block;
     width: 100%;
+    font-family: "Readex Pro", sans-serif;
   }
 
   .responsive-table tr {
     margin-bottom: 12px;
     border-bottom: 2px solid #5594DC;
+    font-family: "Readex Pro", sans-serif;
   }
 
   .responsive-table td {
@@ -208,6 +233,7 @@ body {
     position: relative;
     text-align: left;
     border-bottom: 1px solid #eee;
+    font-family: "Readex Pro", sans-serif;
   }
 
   .responsive-table td:before {
@@ -217,6 +243,7 @@ body {
     width: 40%;
     font-weight: bold;
     text-align: left;
+    font-family: "Readex Pro", sans-serif;
   }
 }
 
@@ -226,6 +253,7 @@ body {
     position: absolute;
     z-index: 10;
     height: 100%;
+    font-family: "Readex Pro", sans-serif;
   }
   
   .sidebar.open {
@@ -234,11 +262,13 @@ body {
   
   .sidebar-label {
     display: block;
+    font-family: "Readex Pro", sans-serif;
   }
   
   .responsive-table td {
     padding-left: 8px;
     padding-top: 30px;
+    font-family: "Readex Pro", sans-serif;
   }
   
   .responsive-table td:before {
@@ -246,5 +276,6 @@ body {
     top: 8px;
     left: 8px;
     width: 100%;
+    font-family: "Readex Pro", sans-serif;
   }
 }

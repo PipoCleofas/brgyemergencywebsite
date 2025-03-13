@@ -12,11 +12,54 @@ body {
 }
 
 .Home {
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  padding: 100px;
-  color: #333; /* Darkened for better readability */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px; /* Adjust spacing */
+}
+
+.adminbutton, .barangaybutton {
+  display: inline-block;
+  width: 200px; /* Set equal width */
+  height: 54px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.adminbutton {
+  background-color: #6CB4D8;
+  color: black;
+  border: 2px solid #6CB4D8;
+}
+
+.barangaybutton {
+  background-color: #D86CB0; 
+  color: black;
+  border: 2px solid #D86CB0;
+}
+
+.adminbutton:hover {
+  background-color: #5A9EC8;
+  transform: scale(1.1);
+}
+
+
+.barangaybutton:hover {
+  background-color: #C658A0;
+  transform: scale(1.1);
 }
 
 .monserat {

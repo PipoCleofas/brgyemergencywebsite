@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from './pictures/logo.gif'; 
 import './App.css';
+import "@fontsource/readex-pro";
 
 function App() {
   const navigate = useNavigate();

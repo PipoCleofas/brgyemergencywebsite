@@ -74,6 +74,7 @@ export default function History() {
           transition: 'width 0.3s, opacity 0.3s',
           backgroundColor: '#6C95C3',
           color: 'white',
+          fontFamily: "'Readex Pro', sans-serif"
         }}
       >
         {/* Avatar Section */}
@@ -159,6 +160,7 @@ export default function History() {
           padding: '20px',
           backgroundColor: '#5594DC',
           transition: 'margin-left 0.3s',
+          fontFamily: "'Readex Pro', sans-serif"
         }}
       >
         <button
@@ -176,12 +178,12 @@ export default function History() {
         >
           ☰
         </button>
-        <div className="dashboard-header" style={{ borderBottom: '2px solid #6CB4D8', paddingBottom: '10px' }}>
-          <h1 style={{ color: 'white', margin: 0 }}>{t.asstreport}</h1>
+        <div className="dashboard-header" style={{ borderBottom: '2px solid #6CB4D8', paddingBottom: '10px', fontFamily: "'Readex Pro', sans-serif" }}>
+          <h1 style={{ color: 'white', margin: 0, fontFamily: "'Readex Pro', sans-serif" }}>{t.asstreport}</h1>
         </div>
 
         <div className="table-container">
-          <table className="history-table">
+          <table className="history-table" style={{ fontFamily: "'Readex Pro', sans-serif" }}>
             <thead>
               <tr>
                 <th>{t.message}</th>

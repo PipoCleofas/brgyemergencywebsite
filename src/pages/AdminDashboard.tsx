@@ -4,6 +4,7 @@ import { LanguageProvider, useLanguageContext } from '../context/LanguageProvide
 import { useHandleClicks } from '../hooks/useHandleClicks';
 import '../../utils/Home.css';
 import '../../utils/admindashboard.css';
+import "@fontsource/readex-pro";
 
 export default function AdminDashboard() {
   const [sidebarVisible, setSidebarVisible] = useState(true);
@@ -13,6 +14,9 @@ export default function AdminDashboard() {
   const { handleNavClick } = useHandleClicks();
   const { translations, language, changeLanguage } = useLanguageContext();
   const t = translations[language];
+  const style = {
+    fontFamily: "'Readex Pro', sans-serif",
+};
 
   useEffect(() => {
     const fetchUserCount = async () => {
@@ -53,6 +57,7 @@ export default function AdminDashboard() {
             transition: 'width 0.3s, opacity 0.3s',
             backgroundColor: '#6C95C3',
             color: 'white',
+            fontFamily: "'Readex Pro', sans-serif",
           }}
         >
           {/* Avatar Section */}
@@ -138,6 +143,7 @@ export default function AdminDashboard() {
             padding: '15px',
             backgroundColor: sidebarVisible ? '#5594DC' : '#5594DC',
             transition: 'margin-left 0.3s',
+            fontFamily: "'Readex Pro', sans-serif"
           }}
         >
           <button
@@ -155,15 +161,15 @@ export default function AdminDashboard() {
           >
             ☰
           </button>
-          <div className="dashboard-header" style={{ borderBottom: '2px solid #6CB4D8', paddingBottom: '10px' }}>
+          <div className="dashboard-header" style={{ borderBottom: '2px solid #6CB4D8', paddingBottom: '10px', fontFamily: "'Readex Pro', sans-serif" }}>
             <h1 style={{ color: 'white', margin: 0 }}>Dashboard</h1>
           </div>
 
           {/* Service Providers Section */}
-          <p style={{ textAlign: 'center', color: 'white', marginTop: '20px' }}>
+          <p style={{ textAlign: 'center', color: 'white', marginTop: '20px', fontFamily: "'Readex Pro', sans-serif" }}>
             <b>{t.serviceprovider}</b>
           </p>
-          <div className="service-providers" style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+          <div className="service-providers" style={{ display: 'flex', justifyContent: 'center', gap: '20px', fontFamily: "'Readex Pro', sans-serif" }}>
             {[
               { name: t.police, count: 3, bgColor: '#F4E46C', icon: '👮' },
               { name: t.firefighter, count: 3, bgColor: '#FE7979', icon: '🚒' },
@@ -186,6 +192,7 @@ export default function AdminDashboard() {
                   textAlign: 'center',
                   boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
                   transition: 'transform 0.3s, background-color 0.3s',
+                  fontFamily: "'Readex Pro', sans-serif"
                 }}
               >
                 <span
@@ -206,7 +213,7 @@ export default function AdminDashboard() {
           </div>
 
           {/* Citizens Section */}
-          <p style={{ textAlign: 'center', color: 'white', marginTop: '40px' }}>
+          <p style={{ textAlign: 'center', color: 'white', marginTop: '40px', fontFamily: "'Readex Pro', sans-serif" }}>
             <b>{t.citizens}</b>
           </p>
           <div
@@ -215,6 +222,7 @@ export default function AdminDashboard() {
               display: 'flex',
               justifyContent: 'center',
               marginTop: '20px',
+              fontFamily: "'Readex Pro', sans-serif"
             }}
           >
             <div
@@ -230,6 +238,7 @@ export default function AdminDashboard() {
                 textAlign: 'center',
                 boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
                 transition: 'transform 0.3s, background-color 0.3s',
+                fontFamily: "'Readex Pro', sans-serif"
               }}
             >
               <span

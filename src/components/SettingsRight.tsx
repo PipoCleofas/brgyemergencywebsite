@@ -31,7 +31,7 @@ export default function SettingsRight() {
           textAlign: 'left',
         }}
       >
-        <h2 style={{ fontSize: '1rem', marginBottom: '10px', color: '#5594dc' }}>
+        <h2 style={{ fontSize: '1rem', marginBottom: '10px', color: '#5594dc', fontFamily: "'Readex Pro', sans-serif" }}>
           {t.chooselang}
         </h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -47,6 +47,7 @@ export default function SettingsRight() {
                 borderRadius: '8px',
                 cursor: 'pointer',
                 transition: 'background-color 0.3s',
+                fontFamily: "'Readex Pro', sans-serif"
               }}
               onClick={() => changeLanguage(option.label)}
             >

@@ -5,6 +5,7 @@ body {
   display: flex;
   height: 100vh;
   background-color: #E0F7FA;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .sidebar {
@@ -24,6 +25,7 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .sidebar ul li a {
@@ -31,6 +33,7 @@ body {
   text-decoration: none;
   font-weight: bold;
   padding: 10px;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .sidebar ul li:hover {
@@ -80,6 +83,7 @@ body {
   flex: 1;
   padding: 20px;
   background-color: #5594DC;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .dashboard-header {
@@ -88,10 +92,12 @@ body {
   align-items: center;
   border-bottom: 2px solid #6CB4D8;
   padding-bottom: 10px;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .dashboard-header h1 {
   color: white;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .toggle-sidebar {
@@ -111,6 +117,7 @@ body {
   background-color: #f5f5f5;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Readex Pro", sans-serif;
 }
 
 .history-table {
@@ -118,6 +125,7 @@ body {
   border-collapse: collapse;
   font-size: 14px;
   color: #333;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .history-table th {
@@ -126,10 +134,12 @@ body {
   padding: 10px;
   border-bottom: 1px solid #ddd;
   text-align: left;
+  font-family: "Readex Pro", sans-serif;
 }
 
 .history-table td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  font-family: "Readex Pro", sans-serif;
 }
