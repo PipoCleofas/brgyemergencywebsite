@@ -12,6 +12,9 @@ interface LanguageContextProps {
       approval1: string;
       approved: string;
       rejected: string;
+      rejectedcaps: string;
+      done: string;
+      pending: string;
       home: string;
       settings: string;
       approve: string;
@@ -24,6 +27,7 @@ interface LanguageContextProps {
       chooselang: string;
       language_desc: string;
       asstreport: string;
+      brgyasstreport: string;
       citizens: string;
       disaster: string;
       users: string;
@@ -44,6 +48,8 @@ interface LanguageContextProps {
       comment: string;
       message: string;
       transferlogs: string;
+      typeofrequest: string;
+      logout: string;
     };
   };
 }
@@ -81,6 +87,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       approval1: 'APPROVAL',
       approved: 'Approved',
       rejected: 'Rejected',
+      rejectedcaps: 'REJECTED',
       home: 'Home',
       settings: 'Settings',
       transferlogs: 'Transfer Logs',
@@ -93,6 +100,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       chooselang: 'Select Language:',
       language_desc: 'Choose your preferred language for the application.',
       asstreport: 'Assistance Report',
+      brgyasstreport: 'View Assistance Report',
       serviceprovider: 'SERVICE PROVIDERS',
       citizens: 'CITIZENS',
       disaster: 'Disaster',
@@ -107,12 +115,16 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       status: 'STATUS',
       view: 'View',
       name: 'NAME',
-      type: 'TYPE',
+      type: 'TYPE OF SERVICE PROVIDER',
       date: 'DATE',
       location: 'LOCATION',
       respondent: 'RESPONDENT',
       comment: 'COMMENT',
       message: 'MESSAGE',
+      typeofrequest: 'TYPE OF REQUEST',
+      done: 'DONE',
+      pending: 'PENDING',
+      logout: 'Logout',
     },
     Filipino: {
       greeting: 'Kamusta',
@@ -121,6 +133,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       approval1: 'PAG-APRUBA',
       approved: 'Inaprubahan',
       rejected: 'Tinanggihan',
+      rejectedcaps: 'TINANGGIHAN',
       home: 'Bungad',
       settings: 'Mga Setting',
       transferlogs: 'Mga Log ng Paglilipat',
@@ -133,6 +146,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       chooselang: 'Pumili ng wika:',
       language_desc: 'Mamili ng wika para as application.',
       asstreport: 'Ulat ng Tulong',
+      brgyasstreport: 'Tingnan ang Ulat ng Tulong',
       serviceprovider: 'TAGAPAGBIGAY NG SERBISYO',
       citizens: 'MGA MAMAMAYAN',
       disaster: 'Sakuna',
@@ -153,6 +167,10 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       respondent: 'RUMERESPONDE',
       comment: 'KOMENTARYO',
       message: 'MENSAHE',
+      typeofrequest: 'URI NG HILING',
+      done: 'NATAPOS NA',
+      pending: 'PENDING',
+      logout: 'Mag-logout',
     },
   };
 

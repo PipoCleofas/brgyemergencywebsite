@@ -1,0 +1,145 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #E0F7FA;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #6C95C3;
+    padding: 20px;
+    color: white;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .sidebar ul li:hover {
+    background-color: #008BBD;
+    border-radius: 50px;
+  }
+  
+  .sidebar ul li.active {
+    background-color: #008BBD;
+    border-radius: 50px;
+  }
+  
+  /* Avatar Section */
+  .avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .avatar-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+  }
+  
+  .avatar-container h3,
+  .avatar-container p {
+    color: white;
+    margin: 5px 0;
+  }
+  
+  .avatar-container h3 {
+    font-size: 1rem;
+  }
+  
+  .avatar-container p {
+    font-size: 0.8rem;
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #5594DC;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #6CB4D8;
+    padding-bottom: 10px;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .dashboard-header h1 {
+    color: white;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .toggle-sidebar {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Table Styles */
+  .table-container {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .history-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    color: #333;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .history-table th {
+    background-color: #5594DC;
+    color: white;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .history-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-family: "Readex Pro", sans-serif;
+  }

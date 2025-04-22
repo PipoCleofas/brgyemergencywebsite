@@ -4,7 +4,7 @@ import { LanguageProvider, useLanguageContext } from '../context/LanguageProvide
 import { useHandleClicks } from '../hooks/useHandleClicks';
 import { useGetItems } from '../hooks/useGetItems';
 import axios from 'axios';
-import '../../utils/assistancereport.css';
+import '../../utils/brgyassistancereport.css';
 
 export default function History() {
   const [sidebarVisible, setSidebarVisible] = useState(true);
@@ -16,6 +16,7 @@ export default function History() {
   const { translations, language, changeLanguage } = useLanguageContext();
   const t = translations[language];
   const [filterStatus, setFilterStatus] = useState('done'); // default to "done"
+
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
@@ -40,6 +41,23 @@ export default function History() {
 
   if (loading) {
     return <div>Loading...</div>;
+  }
+
+  async function updateMessageStatus(id: number, status: string) {
+    try {
+      await axios.put(
+        `https://express-production-ac91.up.railway.app/messaging/updateMessage`,
+        { id, status },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      console.log(`Message with ID ${id} updated successfully`);
+    } catch (err) {
+      console.error('Error updating message status:', err);
+    }
   }
 
   if (!messages) {
@@ -94,17 +112,14 @@ export default function History() {
               }}
             />
           </div>
-          <h3 style={{ color: 'white', fontSize: '1rem', margin: 0 }}>Admin Name</h3>
-          <p style={{ color: 'white', fontSize: '0.8rem', margin: 0 }}>Admin Role</p>
+          <h3 style={{ color: 'white', fontSize: '1rem', margin: 0 }}>Barangay</h3>
         </div>
 
         <ul style={{ listStyle: 'none', padding: 0, marginTop: '20px' }}>
           {[
-            { label: t.home, icon: '🏠', path: '/admindashboard' },
-            { label: t.approval, icon: '✅', path: '/approval' },
-            { label: t.settings, icon: '⚙️', path: '/settings' },
-            { label: t.asstreport, icon: '📜', path: '/asstreport' },
-            { label: t.transferlogs, icon: '🗃️', path: '/transferlogs' },
+            { label: t.asstreport, icon: '📜', path: '/brgyasstreport' },
+            { label: t.settings, icon: '⚙️', path: '/brgysettings' },
+            { label: t.logout, icon: '📲', path: '/barangaylogin' },
           ].map((item, index) => (
             <li
               key={index}
@@ -163,7 +178,7 @@ export default function History() {
           ☰
         </button>
         <div className="dashboard-header" style={{ borderBottom: '2px solid #6CB4D8', paddingBottom: '10px', fontFamily: "'Readex Pro', sans-serif" }}>
-          <h1 style={{ color: 'white', margin: 0, fontFamily: "'Readex Pro', sans-serif" }}>{t.asstreport}</h1>
+          <h1 style={{ color: 'white', margin: 0, fontFamily: "'Readex Pro', sans-serif" }}>{t.brgyasstreport}</h1>
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '10px' }}>
@@ -190,29 +205,26 @@ export default function History() {
 
         <div className="table-container">
           <table className="history-table" style={{ fontFamily: "'Readex Pro', sans-serif" }}>
-            <thead>
-              <tr>
-                <th>{t.message}</th>
-              </tr>
-            </thead>
-            <tbody>
-  {messages
-      .filter((msg: any) => msg.status === filterStatus)
-      .map((message: any) => (
-        <tr key={message.id}>
-          <td>
-            {filterStatus === 'done' ? (
-              <>
-                <div>{message.message}</div>
-                <div style={{ fontSize: '0.8rem', color: '#f0f0f0' }}>{message.timestamp}</div>
-              </>
-            ) : (
-              filterStatus
-            )}
-          </td>
-        </tr>
-    ))}
-  </tbody>
+          <thead>
+          <tr>
+            <th>{t.name}</th>
+            <th>{t.typeofrequest}</th>
+            <th>{t.date}</th>
+            <th>{t.location}</th>
+            <th>{t.status}</th>
+          </tr>
+          </thead>
+          <tbody>
+    {messages.filter((msg: any) => msg.status === filterStatus).map((message: any) => (
+    <tr key={message.id}>
+      <td>{message.name}</td>
+      <td>{message.type}</td>
+      <td>{message.date}</td>
+      <td>{message.location}</td>
+      <td>{message.status.charAt(0).toUpperCase() + message.status.slice(1)}</td>
+    </tr>
+  ))}
+</tbody>
 
           </table>
         </div>

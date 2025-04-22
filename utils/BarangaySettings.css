@@ -1,0 +1,198 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #E0F7FA;
+    transition: margin-left 0.3s;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #6C95C3;
+    padding: 20px;
+    color: white;
+    transition: width 0.3s, opacity 0.3s;
+    position: relative;
+  }
+  
+  .sidebar.hidden {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 20px 0;
+    text-align: left;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+  }
+  
+  .sidebar ul li:hover {
+    background-color: #008BBD;
+    border-radius: 50px;
+  }
+  
+  .sidebar ul li.active {
+    background-color: #008BBD;
+    border-radius: 50px;
+  }
+  
+  /* Avatar Section */
+  .avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .avatar-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+  }
+  
+  .avatar-container h3,
+  .avatar-container p {
+    color: white;
+    margin: 5px 0;
+  }
+  
+  .avatar-container h3 {
+    font-size: 1rem;
+  }
+  
+  .avatar-container p {
+    font-size: 0.8rem;
+  }
+  
+  /* Sidebar Link Icons */
+  .sidebar ul li span {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  /* Main Content */
+  .main {
+    flex: 1; /* Allow main content to fill the remaining space */
+    padding: 0; /* Remove unnecessary padding */
+    margin: 0; /* Ensure there's no margin */
+    background-color: #5594DC; /* Background color for the main section */
+    height: 100vh; /* Full height to match the sidebar */
+    box-sizing: border-box; /* Include padding/border in dimensions */
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #6CB4D8;
+    padding-bottom: 10px;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .dashboard-header h1 {
+    margin: 0;
+    color: white;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .toggle-sidebar {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  
+  .settings-left {
+    flex: 1;
+    background-color: #6C95C3;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .settings-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align closer to the sidebar */
+    justify-content: flex-start;
+    padding: 20px; /* Space around the content */
+    background-color: #f9f9f9; /* Set a white background */
+    border-radius: 10px; /* Rounded corners for the card */
+    width: auto; /* Change to auto or a specific width */
+    max-width: 800px; /* Optional: set a maximum width for the card */
+    box-sizing: border-box; /* Include padding/border in dimensions */
+    margin-left: 0; /* Ensure no margin is pushing it to the right */
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .settings-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 16px; /* Spacing between header and content */
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  
+  /* Language Option Card */
+  .language-option {
+    display: flex;
+    align-items: left;
+    justify-content: flex-start;
+    padding: 10px 15px;
+    background-color: #f1f1f1;
+    color: #333;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: "Readex Pro", sans-serif;
+  }
+  
+  .language-option:hover {
+    background-color: #d8e7f5;
+  }
+  
+  .language-option.active {
+    background-color: #007bff;
+    color: white;
+  }
