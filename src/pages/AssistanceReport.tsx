@@ -202,13 +202,14 @@ export default function History() {
         <tr key={message.id}>
           <td>
             {filterStatus === 'done' ? (
-              <>
-                <div>{message.message}</div>
-                <div style={{ fontSize: '0.8rem', color: '#f0f0f0' }}>{message.timestamp}</div>
-              </>
-            ) : (
-              filterStatus
-            )}
+            <>
+              <div>{message.message}</div>
+              <div style={{ fontSize: '0.8rem', color: '#f0f0f0' }}>{message.timestamp}</div>
+            </>
+          ) : (
+            <div>{message.message}</div> // still show the message, but no timestamp
+          )}
+
           </td>
         </tr>
     ))}
