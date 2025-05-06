@@ -5,7 +5,6 @@ import { useGetItems } from '../hooks/useGetItems';
 const ApprovalRight = () => {
   const { checkAccounts, clients } = useGetItems();
   const [loading, setLoading] = useState(true);
-  const [updatingStatus, setUpdatingStatus] = useState<number | null>(null);
   const [sidebarVisible, setSidebarVisible] = useState(true);
 
   useEffect(() => {
@@ -35,7 +34,6 @@ const ApprovalRight = () => {
 
   const updateUserStatus = async (status: string, userId: number) => {
     try {
-      setUpdatingStatus(userId);
       const response = await axios.put(
         `https://express-production-ac91.up.railway.app/user/updateStatusUser/${status}`,
         { UserID: userId },
@@ -46,7 +44,7 @@ const ApprovalRight = () => {
     } catch (error) {
       console.error("Error updating user status:", error);
     } finally {
-      setUpdatingStatus(null);
+      console.log(1)
     }
   };
 
