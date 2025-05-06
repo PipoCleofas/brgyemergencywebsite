@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguageContext } from '../context/LanguageProvider';
 import { useHandleClicks } from '../hooks/useHandleClicks';
@@ -10,7 +10,7 @@ export default function Settings() {
   const navigate = useNavigate();
   const location = useLocation();
   const { handleNavClick } = useHandleClicks();
-  const { translations, language, changeLanguage } = useLanguageContext();
+  const { translations, language } = useLanguageContext();
   const t = translations[language];
 
   const toggleSidebar = () => {

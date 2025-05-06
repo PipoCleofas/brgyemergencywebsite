@@ -1,6 +1,4 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLanguageContext } from '../context/LanguageProvider';
 import { useHandleClicks } from '../hooks/useHandleClicks';
 import '../../utils/homepage.css';
 import '../../utils/adminlogin.css';
@@ -9,7 +7,6 @@ import '../../utils/barangaylogin.css';
 
 export default function HomePage() {
   const navigate = useNavigate();
-  const { language } = useLanguageContext();
   const { handleNavClick } = useHandleClicks();
 
   return (

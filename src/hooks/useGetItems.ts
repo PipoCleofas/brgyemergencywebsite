@@ -2,13 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import { handleAxiosError } from "../../utils/handleAxiosError";
 import { Client } from '../types/ClientList';
-import { Request } from '../types/Request';
 import { Messages } from '../types/Message';
 
 export function useGetItems() {
   const [photos, setPhotos] = useState<any>();
-  const [requests, setRequests] = useState<Request[]>([]);
-  const [markerIds, setMarkerIDs] = useState<number[] | undefined>([]);
   const [clients, setClients] = useState<Client[]>([]);
   const [messages, setMessages] = useState<Messages[] | null>(null); // Define messages consistently as Messages[] or null
   const [error, setError] = useState<string | null>(null);
@@ -144,10 +141,8 @@ export function useGetItems() {
 
   return {
     error,
-    requests,
     clients,
     checkAccounts,
-    markerIds,
     messages,
     photos,
     setPhotos,

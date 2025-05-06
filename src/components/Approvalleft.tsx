@@ -1,10 +1,7 @@
-import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useLanguageContext } from '../context/LanguageProvider';
 import { useHandleClicks } from '../hooks/useHandleClicks';
 
 const ApprovalLeft = () => {
-  const { language } = useLanguageContext();
   const { handleNavClick } = useHandleClicks();
   const navigate = useNavigate();
   const location = useLocation();

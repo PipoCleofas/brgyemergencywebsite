@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useGetItems } from '../hooks/useGetItems';
 
 const ApprovalRight = () => {
-  const { checkAccounts, clients, photos, setPhotos } = useGetItems();
+  const { checkAccounts, clients } = useGetItems();
   const [loading, setLoading] = useState(true);
   const [updatingStatus, setUpdatingStatus] = useState<number | null>(null);
   const [sidebarVisible, setSidebarVisible] = useState(true);

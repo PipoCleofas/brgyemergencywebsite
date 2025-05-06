@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { LanguageProvider, useLanguageContext } from '../context/LanguageProvider';
+import { useLanguageContext } from '../context/LanguageProvider';
 import { useHandleClicks } from '../hooks/useHandleClicks';
 import '../../utils/Home.css';
 import '../../utils/admindashboard.css';
@@ -12,11 +12,9 @@ export default function AdminDashboard() {
   const navigate = useNavigate();
   const location = useLocation();
   const { handleNavClick } = useHandleClicks();
-  const { translations, language, changeLanguage } = useLanguageContext();
+  const { translations, language } = useLanguageContext();
   const t = translations[language];
-  const style = {
-    fontFamily: "'Readex Pro', sans-serif",
-};
+  
 
   useEffect(() => {
     const fetchUserCount = async () => {

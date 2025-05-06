@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { LanguageProvider, useLanguageContext } from '../context/LanguageProvider';
+import {  useLanguageContext } from '../context/LanguageProvider';
 import { useHandleClicks } from '../hooks/useHandleClicks';
 import { useGetItems } from '../hooks/useGetItems';
-import axios from 'axios';
 import '../../utils/brgyassistancereport.css';
 
 export default function History() {
@@ -13,7 +12,7 @@ export default function History() {
   const navigate = useNavigate();
   const location = useLocation();
   const { handleNavClick } = useHandleClicks();
-  const { translations, language, changeLanguage } = useLanguageContext();
+  const { translations, language } = useLanguageContext();
   const t = translations[language];
   const [filterStatus, setFilterStatus] = useState('done'); // default to "done"
 
@@ -43,22 +42,7 @@ export default function History() {
     return <div>Loading...</div>;
   }
 
-  async function updateMessageStatus(id: number, status: string) {
-    try {
-      await axios.put(
-        `https://express-production-ac91.up.railway.app/messaging/updateMessage`,
-        { id, status },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-      console.log(`Message with ID ${id} updated successfully`);
-    } catch (err) {
-      console.error('Error updating message status:', err);
-    }
-  }
+ 
 
   if (!messages) {
     return <div>No messages available.</div>;
