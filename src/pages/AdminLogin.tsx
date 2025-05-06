@@ -21,7 +21,6 @@ export default function AdminLogin() {
 
   return (
     <div className="container">
-      <img src="logo.png" alt="Rescue Link Logo"/>
       <h2>ADMIN LOGIN</h2>
       <form onSubmit={handleLogin}>
         <div className="input-container">

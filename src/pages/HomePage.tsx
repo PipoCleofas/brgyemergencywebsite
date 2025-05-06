@@ -11,7 +11,6 @@ export default function HomePage() {
 
   return (
     <div className="Home">
-      <img src="logo.png" height="270px" width="450px" alt="Logo"/>
       <p className="monserat"><b>YOUR SAFETY</b></p>
       <p className="monserat"><b>IS OUR</b></p>
       <p className="monserat"><b>PRIORITY</b></p>

@@ -17,7 +17,6 @@ export default function BarangayLogin() {
 
   return (
     <div className="container">
-      <img src="logo.png" alt="Rescue Link Logo" />
       <h2>BARANGAY LOGIN</h2>
       <form onSubmit={onLogin}>
         <div className="input-container">
