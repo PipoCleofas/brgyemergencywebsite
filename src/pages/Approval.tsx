@@ -5,7 +5,6 @@ import { useHandleClicks } from '../hooks/useHandleClicks';
 import { useGetItems } from "../hooks/useGetItems";
 import axios from 'axios';
 import '../../utils/Home.css';
-import '../../utils/approval.css';
 import "@fontsource/readex-pro";
 
 export default function Approval() {
