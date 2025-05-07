@@ -4,7 +4,7 @@ import { useLanguageContext } from '../context/LanguageProvider';
 import { useHandleClicks } from '../hooks/useHandleClicks';
 import { useGetItems } from "../hooks/useGetItems";
 import axios from 'axios';
-import '../../utils/Home.css';
+import '../../utils/Approval.css';
 import "@fontsource/readex-pro";
 
 export default function Approval() {
@@ -156,6 +156,7 @@ export default function Approval() {
   const userPhotos = photos?.find((photo: Photo) => photo.UserID === user.UserID) || {};
 
   console.log("🔍 Checking userPhotos:", user.UserID, userPhotos); // Debugging
+  console.log("Filtered clients:", filteredClients);
 
   return (
     <tr key={user.UserID}>
