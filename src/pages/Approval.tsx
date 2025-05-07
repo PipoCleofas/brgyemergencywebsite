@@ -156,6 +156,7 @@ export default function Approval() {
   const userPhotos = photos?.find((photo: Photo) => photo.UserID === user.UserID) || {};
 
   console.log("🔍 Checking userPhotos:", user.UserID, userPhotos); // Debugging
+  console.log("Filtered clients:", filteredClients);
 
   return (
     <tr key={user.UserID}>
