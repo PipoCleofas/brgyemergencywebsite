@@ -172,7 +172,7 @@ export default function AdminDashboard() {
               { name: t.police, count: 3, bgColor: '#F4E46C', icon: '👮' },
               { name: t.firefighter, count: 3, bgColor: '#FE7979', icon: '🚒' },
               { name: t.medical, count: 3, bgColor: '#79DAFE', icon: '🩺' },
-              { name: t.disaster, count: 1, bgColor: '#ABB9FF', icon: '🌪️' },
+              { name: 'PDRRMO', count: 1, bgColor: '#ABB9FF', icon: '🌪️' },
               { name: 'Barangay', count: 55, bgColor: '#3EEC3E', icon: '🏠' },
             ].map((item, index) => (
               <div
